@@ -8,3 +8,17 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
+
+.footer {
+  background-color: blue;
+  color: bisque;
+}
+
+.header {
+  background-color: blue;
+  color: bisque;
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
