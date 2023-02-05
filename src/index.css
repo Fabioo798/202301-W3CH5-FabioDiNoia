@@ -1,0 +1,10 @@
+.poke-card {
+  background-color: bisque;
+}
+
+.poke-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
