@@ -11,13 +11,34 @@ export interface PokemonApiRepoStructure {
 export class PokemonApiRepo {
   url: string;
   constructor(public storeName: string = 'Pokemon') {
-    this.url = 'https://pokeapi.co/api/v2/pokemon/1';
+    this.url = 'https://pokeapi.co/api/v2/pokemon?limit=20';
   }
 
   async loadPokemon(): Promise<PokeStructure[]> {
     const resp = await fetch(this.url);
-    const data = (await resp.json()) as PokeStructure[];
-    return data;
+    const data = await resp.json();
+    console.log(data);
+    const pokemonArray = Object.values(data);
+    console.log(pokemonArray);
+    const filteredArray: any[] = pokemonArray.slice(3);
+    console.log(filteredArray);
+    const promises = filteredArray[0].map(async (pokemon: any) => {
+      let url = pokemon.url;
+      const response = await fetch(url);
+      return response.json();
+    });
+    const pokeData = await Promise.all(promises);
+    console.log(pokeData);
+    const pokeStructures: any[] = pokeData.map((pokemon) => {
+      return {
+        id: pokemon.id,
+        name: pokemon.name,
+        type: pokemon.type,
+        // ... any other properties you want to extract from the API response
+      };
+    });
+    console.log(pokeStructures);
+    return pokeStructures;
   }
 
   async getPokemon(id: PokeStructure['id']): Promise<PokeStructure> {
@@ -59,4 +80,3 @@ export class PokemonApiRepo {
     });
   }
 }
-
