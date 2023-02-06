@@ -17,7 +17,7 @@ export class Cards extends Component {
   async load() {
     this.cards = await this.repo.loadPokemon();
     this.cards = Object.values(await this.repo.loadPokemon());
-    console.log(typeof this.cards);
+    console.log(this.cards);
     this.render('afterbegin');
   }
 
