@@ -2,7 +2,6 @@ import { screen, fireEvent } from '@testing-library/dom';
 import '@testing-library/jest-dom';
 import { PokeStructure } from "../../models/pokemon";
 import { Card } from '../card/card';
-import { Cards } from "./cards";
 
 
 describe('Given Card component', () => {
