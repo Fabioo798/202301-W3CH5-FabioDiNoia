@@ -15,7 +15,8 @@ export class Card extends Component {
 
   render(place: globalThis.InsertPosition) {
     super.render(place);
-    this.element.querySelector('dbutton')?.addEventListener('click', () => {
+    this.element.querySelector('.dbutton')?.addEventListener('click', () => {
+      this.card.favorite= !this.card.favorite;
       this.updateCard(this.card);
     });
   }

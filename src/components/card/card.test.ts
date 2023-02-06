@@ -17,7 +17,5 @@ describe('Given Card component', () => {
   test('It render the card in the document', () => {
     const p = screen.getByText('Fabio');
     expect(p).toBeInTheDocument();
-    // const span = screen.getByText(mockCard.name);
-    // expect(span).toBeInTheDocument();
   });
 });
